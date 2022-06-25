@@ -1,16 +1,33 @@
 import React, { useEffect } from 'react'
 import { NavLink, useNavigate } from "react-router-dom";
-import { control } from '../Control';
 
 function NavBar() {
 
     const navigate = useNavigate()
-    useEffect(() => {
-    const status = control()
-    if ( status === undefined ) {
+
+    const control = () => {
+        const stData = sessionStorage.getItem("user")
+        if ( stData ) {
+            return stData
+        }else {
+            return null
+        }
+      }
+      const user = control()
+
+      setInterval(function () {
+        const user = control()
+        if ( user === null || user === "" ) {
+            sessionStorage.removeItem("user")
+            navigate('/')
+        }
+      }, 1000);
+
+
+      const logOut = () => {
+        sessionStorage.removeItem("user")
         navigate('/')
-    }
-    }, [])
+      }
 
   return (
     <>
@@ -36,11 +53,11 @@ function NavBar() {
                     <li><a className="dropdown-item" href="#">Action</a></li>
                     <li><a className="dropdown-item" href="#">Another action</a></li>
                     <li><hr className="dropdown-divider" /></li>
-                    <li><a className="dropdown-item" href="#">Something else here</a></li>
+                    <li><a className="dropdown-item" onClick={logOut} role='button'>LogOut</a></li>
                 </ul>
                 </li>
                 <li className="nav-item">
-                <a className="nav-link disabled">Disabled</a>
+                <a className="nav-link disabled"> { user } </a>
                 </li>
             </ul>
             <form className="d-flex" role="search">

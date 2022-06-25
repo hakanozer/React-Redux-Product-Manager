@@ -8,14 +8,15 @@ import Login from './Login';
 import Dashboard from './Dashboard';
 import NotFound from './NotFound';
 import Settings from './Settings';
+import Security from './Security';
 
 // routes 
 const routes =
 <BrowserRouter>
   <Routes>
     <Route path='' element={ <Login/> } ></Route>
-    <Route path='/dashboard' element={ <Dashboard /> }></Route>
-    <Route path='/settings' element={ <Settings /> }></Route>
+    <Route path='/dashboard' element={ <Security component={<Dashboard />} /> }></Route>
+    <Route path='/settings' element={ <Security component={<Settings />} /> }></Route>
     <Route path='*' element={ <NotFound/> }></Route>
   </Routes>
 </BrowserRouter>
