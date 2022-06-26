@@ -40,10 +40,10 @@ function NavBar() {
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                    <NavLink to='/dashboard' className='nav-link' >Dashboard</NavLink>
+                    <NavLink to='/dashboard' className='nav-link' >Product</NavLink>
                 </li>
                 <li className="nav-item">
-                    <NavLink to='/settings' className="nav-link" >Settings</NavLink>
+                    <NavLink to='/settings' className="nav-link" >Note</NavLink>
                 </li>
                 <li className="nav-item dropdown">
                 <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

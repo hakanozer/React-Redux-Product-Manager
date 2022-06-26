@@ -1,7 +1,13 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import { ProBilgiler } from '../models/IProduct'
 
 function ProductItem( item: { pro: ProBilgiler } ) {
+
+  const navigate = useNavigate()
+  const gotoDetail = () => {
+    navigate('/detail', { state: item.pro } )
+  }
   return (
     
         <div className="card col-sm-4">
@@ -9,16 +15,14 @@ function ProductItem( item: { pro: ProBilgiler } ) {
             <div className="card-body">
                 <h5 className="card-title"> { item.pro.productName } </h5>
                 <p className="card-text">{ item.pro.brief }</p>
-                <button type="button" className="btn btn-dark" style={{ position: 'absolute', top: 5, right: 5 }}>
+                <button onClick={ gotoDetail } type="button" className="btn btn-dark" style={{ position: 'absolute', top: 5, right: 5 }}>
                     <i className="bi bi-arrow-right"></i> Detail
                     <span className="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle" style={{ zIndex: 10 }}>
-                         
                             {
                                  parseInt( ""+ ( Math.random() * 10 ) )
                             } 
                     </span>
                 </button>
-           
             </div>
         </div>
   )
