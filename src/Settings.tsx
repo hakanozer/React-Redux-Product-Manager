@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Helmet } from 'react-helmet'
 import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import NavBar from './components/NavBar'
 import { INote } from './models/INote'
 import { StateType } from './useRedux/AppStore'
@@ -8,6 +9,9 @@ import { ENote } from './useRedux/ENote'
 import { INoteAction } from './useRedux/INoteAction'
 
 function Settings() {
+
+  // Push Component send data
+  const navigate = useNavigate()
 
   // use redux
   const dispatch = useDispatch()
@@ -73,22 +77,24 @@ function Settings() {
           <table className="table table-hover">
           <thead>
             <tr className="d-flex" >
-              <th className="col-2">ID</th>
+              <th className="col-1">ID</th>
               <th className="col-3">Title</th>
               <th className="col-3">Detail</th>
               <th className="col-3">Date</th>
               <th className="col-1">Delete</th>
+              <th className="col-1">Detail</th>
             </tr>
           </thead>
           <tbody>
 
             { noteArr.map((item, index) => 
               <tr key={index} className="d-flex" >
-                <td  className="col-2"> { item.id } </td>
+                <td  className="col-1"> { item.id } </td>
                 <td className="col-3"> { item.title } </td>
                 <td className="col-3"> { item.detail } </td>
                 <td className="col-3"> { item.date } </td>
                 <td className="col-1"><button onClick={(evt) => fncDelete(index)} className='btn btn-danger btn-sm'><i className="bi bi-trash3"></i></button></td>
+                <td className="col-1"><button onClick={(evt) => navigate('/noteDetail/'+index)} className='btn btn-primary btn-sm'><i className="bi bi-info-circle"></i></button></td>
               </tr>
              )}
 
