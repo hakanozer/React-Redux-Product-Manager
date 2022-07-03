@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { IUser } from './models/IUser'
+import { Helmet } from 'react-helmet'
 
 function Login() {
 
@@ -45,6 +46,10 @@ function Login() {
   }
   return (
     <>
+        <Helmet>
+          <title>User Login</title>
+          <meta name="description" content="User Login Page" />
+        </Helmet>
         <div className='row'>
             <div className='col-sm-4'></div>
             <div className='col-sm-4'>

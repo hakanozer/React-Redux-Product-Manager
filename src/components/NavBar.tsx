@@ -25,8 +25,11 @@ function NavBar() {
 
 
       const logOut = () => {
-        sessionStorage.removeItem("user")
-        navigate('/')
+        const answer = window.confirm("Are you sure!")
+        if ( answer ) {
+            sessionStorage.removeItem("user")
+            navigate('/')
+        }
       }
 
   return (

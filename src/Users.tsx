@@ -4,6 +4,7 @@ import NavBar from './components/NavBar';
 import md5 from 'md5';
 import { IPlaceUser } from './models/IPlaceUser';
 import { emails } from './models/EmailData';
+import { Helmet } from 'react-helmet';
 
 function Users() {
 
@@ -20,10 +21,27 @@ function Users() {
       setArr(dt)
     })    
   },[])
+
+  // Sample Post
+  useEffect(() => {
+    const sendParams = {
+      name: "Erkan Bilsin"
+  }
+    axios.post( url, { data: sendParams } ).then( res => {
+      console.log( res.data )
+    })
+
+  }, [])
+  
   
 
   return (
-    <>  <NavBar />
+    <>  
+        <Helmet>
+          <title> User List </title>
+          <meta name="description" content="User List Page" />
+        </Helmet>
+        <NavBar />
         <h2>User List</h2>
         <table className="table table-hover">
         <thead>

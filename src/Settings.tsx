@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Helmet } from 'react-helmet'
 import { useDispatch, useSelector } from 'react-redux'
 import NavBar from './components/NavBar'
 import { INote } from './models/INote'
@@ -41,6 +42,10 @@ function Settings() {
 
   return (
     <>
+        <Helmet>
+          <title> Note Module </title>
+          <meta name="description" content="Note Module Page" />
+        </Helmet>
         <NavBar/>
         <div className='row'>
           <div className='col-sm-5'>

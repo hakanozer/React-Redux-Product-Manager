@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import { Helmet } from 'react-helmet';
 
 import NavBar from './components/NavBar';
 import ProductItem from './components/ProductItem';
@@ -23,7 +24,12 @@ function Dashboard() {
   
 
   return (
-    <>  <NavBar />
+    <>  
+        <Helmet>
+          <title>Product List</title>
+          <meta name="description" content="Product List Page" />
+        </Helmet>
+        <NavBar />
         <div className='row p-3'>
           { arr.map( ( item, index ) =>
             <ProductItem key={index} pro={item} />
