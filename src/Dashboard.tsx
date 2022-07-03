@@ -7,7 +7,6 @@ import { IProduct, ProBilgiler } from './models/IProduct';
 
 function Dashboard() {
 
-  const [search, setSearch] = useState('')
   const [arr, setArr] = useState<ProBilgiler[]>([])
 
   useEffect(() => {
@@ -25,7 +24,6 @@ function Dashboard() {
 
   return (
     <>  <NavBar />
-        <input onChange={(evt) => setSearch( evt.target.value ) } className='form-control' placeholder='Search..'></input>
         <div className='row p-3'>
           { arr.map( ( item, index ) =>
             <ProductItem key={index} pro={item} />

@@ -45,20 +45,18 @@ function NavBar() {
                 <li className="nav-item">
                     <NavLink to='/settings' className="nav-link" >Note</NavLink>
                 </li>
+                <li className="nav-item">
+                    <NavLink to='/users' className="nav-link" >Users</NavLink>
+                </li>
                 <li className="nav-item dropdown">
                 <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Dropdown
+                { user }
                 </a>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a className="dropdown-item" href="#">Action</a></li>
-                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                    <li><hr className="dropdown-divider" /></li>
                     <li><a className="dropdown-item" onClick={logOut} role='button'>LogOut</a></li>
                 </ul>
                 </li>
-                <li className="nav-item">
-                <a className="nav-link disabled"> { user } </a>
-                </li>
+                
             </ul>
             <form className="d-flex" role="search">
                 <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
